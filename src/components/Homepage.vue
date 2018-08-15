@@ -1,17 +1,17 @@
 <template>
   <div class="homepage">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!--NAV-->
     <navigation/>
-
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+       Indicators
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
       </ol>
 
-      <!-- Wrapper for slides -->
+       Wrapper for slides
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <!-- Left and right controls -->
+       Left and right controls
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -62,37 +62,49 @@
         </div>
       </div>
     </div><br>
-
-    <footer class="container-fluid text-center">
-      <p>Footer Text</p>
-    </footer>
-
-    <!--FOOTER-->
-    <!--<footer/>-->
+    <footer style="clear:both; background-color:red;margin-top:20%;"/>
   </div>
 </template>
 
 <script>
 import footer from '../components/footer'
 import navigation from '../components/Navigation'
+import axios from 'axios'
 
 export default {
+  data () {
+    return {
+      apikey: '7813aa57',
+      localhost: 'http://www.localhost:8182/',
+      tuples: ['poster']
+    }
+  },
   name: 'Homepage',
   components: {
     'navigation': navigation,
     'footer': footer
+  },
+  mounted: function () {
+    this.getPoster()
+  },
+  methods: {
+    getPoster () {
+      axios.get('http://www.omdbapi.com/?apikey=7813aa57&t=the+dark+knight')
+        .then(function (response) {
+          this.tuples = response.data
+          // handle success
+          console.log(response)
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error)
+        })
+    }
   }
 }
 </script>
 
 <style scoped>
-
-  /* Remove the navbar's default margin-bottom and rounded borders */
-  .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-  }
-
   /* Add a gray background color and some padding to the footer */
   footer {
     background-color: #f2f2f2;
