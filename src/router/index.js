@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import homepage from '../components/Homepage'
-// import navigation from '../components/Navigation'
+
+import homepage from '@/components/Homepage'
+import addAccount from '@/components/AddAccount.vue'
 
 // import BootstrapVue from 'bootstrap-vue'
 //
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'homepage',
       component: homepage
+    },
+    {
+      path: '/add-account',
+      name: 'createAccount',
+      component: addAccount
     }
   ]
 })
