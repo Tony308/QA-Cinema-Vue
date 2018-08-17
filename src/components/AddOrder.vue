@@ -17,7 +17,7 @@
 
 <script>
 import Navigation from './Navigation'
-import Footer from "./footer";
+import Footer from '@/components/footer.vue'
 export default {
   name: 'AddOrder',
   components: {Footer, Navigation}
