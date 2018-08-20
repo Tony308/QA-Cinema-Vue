@@ -23,12 +23,13 @@
           </router-link>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <router-link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown Menu
-          </a>
+          </router-link>
+
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" > Opening Times</a>
+          <router-link>Opening Times</router-link>
         </li>
         <li>
           <form class="form-inline my-2 my-lg-0">
@@ -37,7 +38,11 @@
           </form>
         </li>
       </ul>
-
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <router-link to="/account/login"> Account </router-link>
+        </li>
+      </ul>
     </div>
   </nav>
 </template>

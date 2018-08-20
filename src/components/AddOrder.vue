@@ -9,7 +9,8 @@
       </thead>
       <tr>
         <td> <input type="text" placeholder="Account Number" v-model="accNumber"/></td>
-        <td> <input type="text" placeholder="Ticket Order"/></td>
+        <td> <input type="text" placeholder="Ticket Order"/> </td>
+        <td><input type="button" value="Submit"/></td>
       </tr>
     </table>
   </div>
@@ -26,6 +27,6 @@ export default {
 
 <style scoped>
   table {
-    margin-left:10px;
+    margin-left:25px;
   }
 </style>

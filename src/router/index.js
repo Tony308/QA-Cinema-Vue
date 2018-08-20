@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import homepage from '@/components/Homepage'
 import addAccount from '@/components/AddAccount.vue'
 import addOrder from '@/components/AddOrder'
+import Login from '@/components/Login'
+import account from '@/components/Account'
 
 // import BootstrapVue from 'bootstrap-vue'
 // Vue.use(BootstrapVue)
@@ -23,6 +25,16 @@ export default new Router({
       path: '/add-order',
       name: 'createOrder',
       component: addOrder
+    },
+    {
+      path: '/account/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: account
     }
   ]
 })
