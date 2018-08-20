@@ -10,7 +10,24 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // 'ticket': {
+      //   target:'http://localhost:8182',
+      //   changeOrigin: true
+      // },
+      // 'order': {
+      //   target:'http://localhost:8182',
+      //   changeOrigin: true
+      // },
+      // 'movie': {
+      //   target:'http://localhost:8182',
+      //   changeOrigin: true
+      // },
+      // 'account': {
+      //   target:'http://localhost:8182',
+      //   changeOrigin: true
+      // }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

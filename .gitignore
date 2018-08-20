@@ -13,3 +13,13 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+*.iml
+.idea
+.tscache
+.DS_Store
+typings/
+coverage/
+test/typescript/axios.js*
+sauce_connect.log
+package-lock.json
