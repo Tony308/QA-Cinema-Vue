@@ -2,16 +2,18 @@
   <div>
     <table>
       <tr>
-        <a>Orders</a>
-        <a>Tickets</a>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
+import login from '@/components/Login'
 export default {
-  name: 'Account'
+  name: 'Account',
+  components: {
+    login
+  }
 }
 </script>
 

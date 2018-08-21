@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/add-account" replace>
-            Add Account
+            Accounts
           </router-link>
         </li>
         <li>
@@ -31,7 +31,7 @@
         <li class="nav-item">
           <router-link>Opening Times</router-link>
         </li>
-        <li>
+        <li class="nav-item">
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -40,7 +40,7 @@
       </ul>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/account/login"> Account </router-link>
+          <router-link class="nav-link" to="/account/login"> Account </router-link>
         </li>
       </ul>
     </div>
@@ -49,7 +49,12 @@
 
 <script>
 export default {
-  name: 'Navigation'
+  name: 'Navigation',
+  data () {
+    return {
+      loginID: 0
+    }
+  }
 }
 </script>
 <style scoped>

@@ -2,7 +2,7 @@
   <div class="homepage">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--NAV-->
-    <navigation>  </navigation>
+    <navigation/>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
        <!--Indicators-->
       <ol class="carousel-indicators">
@@ -51,7 +51,7 @@
       </a>
     </div>
 
-    <div class="container text-center">
+    <div class="container text-center" style="padding-bottom:3%;">
       <h3>What's on</h3><br>
       <div class="row">
         <div class="col-sm-4">
@@ -61,15 +61,14 @@
           <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
         </div>
         <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" style="width:100%" alt="Image">
-
+          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
         </div>
       </div>
     </div>
     <br>
 
-    <div class="container text-center" style="margin-top:5%">
-      <h3>What's on</h3><br>
+    <div class="container text-center" style="padding-bottom:3%;">
+      <h3>Discounts</h3><br>
       <div class="row">
         <div class="col-sm-4">
           <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
@@ -78,7 +77,7 @@
           <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
         </div>
         <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" style="width:100%" alt="Image">
+          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
         </div>
       </div>
     </div>
@@ -145,4 +144,11 @@ export default {
       display: none;
     }
   }
+  .homepage {
+    background-color:black;
+  }
+  h3 {
+    color:white;
+  }
+
 </style>
