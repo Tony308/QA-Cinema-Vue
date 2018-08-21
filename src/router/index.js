@@ -5,6 +5,7 @@ import addAccount from '@/components/AddAccount.vue'
 import addOrder from '@/components/AddOrder'
 import Login from '@/components/Login'
 import account from '@/components/Account'
+import search from '@/components/SearchResults'
 
 // import BootstrapVue from 'bootstrap-vue'
 // Vue.use(BootstrapVue)
@@ -35,6 +36,12 @@ export default new Router({
       path: '/account',
       name: 'account',
       component: account
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: search
     }
+
   ]
 })

@@ -44,7 +44,7 @@ export default {
   methods: {
     getAccounts () {
       axios.get('http://www.localhost:8182/account/getAll')
-        .then(function (response) {
+        .then(response => {
           this.items = response.data
           // handle success
           console.log(response)
