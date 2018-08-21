@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <navigation/>
+    <navigation></navigation>
 
     <div id="form">
     <div id="loginForm">
@@ -17,13 +17,15 @@
 <script>
 import Navigation from './Navigation'
 import axios from 'axios'
+// Vue.prototype.$id = this.tuples.id
 export default {
   name: 'Login',
   components: {Navigation},
   data: function () {
     return {
       username: '',
-      password: ''
+      password: '',
+      tuples: []
     }
   },
   methods: {
@@ -31,15 +33,15 @@ export default {
       axios.post('http://localhost:8182/account/login', {
         'accountNumber': this.username,
         'password': this.password
-      }).then(function (response) {
+      }).then(response => {
+        this.tuples = response.data
         console.log(response)
         if (response.data !== -1) {
           window.location.href = 'http://localhost:8080/account/'
         }
+      }).catch(response => {
+        console.log(response)
       })
-        .catch(function (response) {
-          console.log(response)
-        })
     }
   }
 }
@@ -52,7 +54,6 @@ export default {
     width: 100%;
     margin: 5% auto;
     position: relative;
-    border: solid red 2px;
     text-align: center;
   }
 </style>

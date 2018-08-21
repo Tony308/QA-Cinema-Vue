@@ -1,8 +1,7 @@
 <template>
   <div id="addOrder">
-    <router-view></router-view>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <navigation/>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <navigation></navigation>
     <table>
       <thead>
       <th>Account</th><th> Ticket Order</th>
