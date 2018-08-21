@@ -1,6 +1,6 @@
 <template>
   <div id="post-account">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
     <navigation />
     <table style="margin-left:25px;">
@@ -11,17 +11,20 @@
         <td><input v-model="firstname" placeholder="First Name" alt="First Name"></td>
         <td><input v-model="Surname" placeholder="Surname" alt="Surname"/></td>
         <td><input v-model="accNumber" placeholder="Account Number" alt="Account Number"/></td>
-        <td><button> Edit </button></td>
+        <td><button v-on:click="getAccounts"> Edit </button></td>
         <td><button> Delete </button></td>
-        <td></td>
+        <td>      <input type="submit" alt="Submit" v-on:click="createAccount"/>
+        </td>
       </tr>
-      <input type="submit" alt="Submit" v-on:click="createAccount"/>
+      <tr></tr><br>
+      <tr v-for="item in tuples">
+        <td>{{item.firstName}}</td>
+        <td>{{item.lastName}}</td>
+        <td>{{item.accountNumber}}</td>
+      </tr>
 
-      <tr v-for="item in items" :key="item">
-        <td> {{item.firstName}}</td> <td>{{item.lastName}}</td> <td>{{item.accountNumber}}</td>
-      </tr>
     </table>
-    <p id="confirmation" v-bind:value="msg"> {{msg}}</p>
+    <p id="confirmation"  v-bind:value="msg"> {{msg}}</p>
   </div>
 </template>
 
@@ -37,21 +40,23 @@ export default {
       firstname: '',
       Surname: '',
       accNumber: '',
-      items: [],
-      msg: ''
+      msg: '',
+      tuples: []
     }
+  },
+  mounted: function () {
+    this.getAccounts()
   },
   methods: {
     getAccounts () {
       axios.get('http://www.localhost:8182/account/getAll')
-        .then(function (response) {
-          this.items = response.data
-          // handle success
-          console.log(response)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.tuples = response.data
+          console.log(response.data)
         })
-        .catch(function (error) {
-          // handle error
-          console.log(error)
+        .catch(e => {
+          this.errors.push(e)
         })
     },
     createAccount () {
@@ -60,11 +65,13 @@ export default {
         'lastName': this.Surname,
         'accountNumber': this.accNumber
       })
-        .then(function (response) {
-          console.log(response)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.tuples = response.data
+          console.log(response.data)
         })
-        .catch(function (error) {
-          console.log(error)
+        .catch(e => {
+          this.errors.push(e)
         })
       this.getAccounts()
     },
@@ -74,32 +81,34 @@ export default {
         'lastName': '',
         'accountNumber': ''
       })
-        .then(function (response) {
-          console.log(response)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.tuples = response.data
+          console.log(response.data)
         })
-        .catch(function (response) {
-          console.log(response)
+        .catch(e => {
+          this.errors.push(e)
         })
     },
     deleteAccount () {
       axios.delete('http://www.localhost:8182/account/delete/id', {
         'id': 0
       })
-        .then(function (response) {
-          console.log(response)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          console.log(response.data)
         })
-        .catch(function (response) {
-          console.log(response)
+        .catch(e => {
+          this.errors.push(e)
         })
     }
-  },
-  mounted: function () {
-    this.getAccounts()
   }
 }
+
 </script>
 <style scoped>
   table tr td {
     margin: 5px;
+    border: dashed red 2px;
   }
 </style>

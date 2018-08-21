@@ -2,7 +2,7 @@
   <div class="homepage">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--NAV-->
-    <navigation/>
+    <navigation>  </navigation>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
        <!--Indicators-->
       <ol class="carousel-indicators">
@@ -52,22 +52,36 @@
     </div>
 
     <div class="container text-center">
-      <h3>What's On</h3><br>
+      <h3>What's on</h3><br>
       <div class="row">
         <div class="col-sm-4">
           <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-          <p>Current Project</p>
         </div>
         <div class="col-sm-4">
           <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-          <p>Project 2</p>
         </div>
         <div class="col-sm-4">
           <img src="https://placehold.it/150x80?text=IMAGE" style="width:100%" alt="Image">
-          <p class="carousel-caption">Project 3</p>
+
         </div>
       </div>
-    </div><br>
+    </div>
+    <br>
+
+    <div class="container text-center" style="margin-top:5%">
+      <h3>What's on</h3><br>
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4">
+          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4">
+          <img src="https://placehold.it/150x80?text=IMAGE" style="width:100%" alt="Image">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
