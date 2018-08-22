@@ -14,7 +14,6 @@
           </router-link>
         </li>
 
-
         <li class="nav-item">
           <router-link class="nav-link" to="/Aboutus" replace>
             About Us
@@ -49,31 +48,12 @@
             <a>Dropdown Menu</a>
           </router-link>
         </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/add-account" replace>
-            Add Account
-          </router-link>
-        </li>
-        <li>
-          <router-link class="nav-link" to="/add-order" replace>
-            Add Order
-          </router-link>
-        </li>
         <li>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
-
         </li>
-        <!--<li>-->
-          <!--<router-link to="/add-account" replace>-->
-            <!--<a>Accounts</a>-->
-          <!--</router-link>-->
-          <!--<router-link to="/add-order" replace >-->
-            <!--<a>Add Order</a>-->
-          <!--</router-link>-->
-        <!--</li>-->
       </ul>
       <ul class="navbar-nav mr-auto" style="position: relative; display: inline-block; margin:auto; float: right;">
         <li class="nav-item">
@@ -90,9 +70,7 @@
               </router-link>
             </div>
           </div>
-
         </li>
-
       </ul>
     </div>
   </nav>
@@ -123,13 +101,6 @@ export default {
   a {
     color: #42b983;
   }
-
-  /*
-  .dropdown {
-    float: left;
-    overflow: hidden;
-    border: dashed red 2px;
-  }*/
   .dropdown .dropbtn {
     font-size: 16px;
     border: none;
