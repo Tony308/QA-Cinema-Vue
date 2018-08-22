@@ -13,20 +13,58 @@
            Home <span class="sr-only">(current)</span>
           </router-link>
         </li>
-        <!--<li class="nav-item">-->
-          <!--<router-link class="nav-link" to="/add-account" replace>-->
-            <!--<a>Accounts</a>-->
-          <!--</router-link>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<router-link class="nav-link" to="/add-order" replace >-->
-            <!--<a>Add Order</a>-->
-          <!--</router-link>-->
-        <!--</li>-->
+
+
         <li class="nav-item">
+          <router-link class="nav-link" to="/Aboutus" replace>
+            About Us
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Movie-Listings" replace>
+            Movie Listings
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Opening-times" replace>
+            Opening Times
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Contact-us" replace>
+            Contact Us
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Ticket-booking" replace>
+            Ticket Booking
+          </router-link>
+        </li>
+        <li class="nav-item dropdown">
+
           <router-link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <a>Dropdown Menu</a>
           </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/add-account" replace>
+            Add Account
+          </router-link>
+        </li>
+        <li>
+          <router-link class="nav-link" to="/add-order" replace>
+            Add Order
+          </router-link>
+        </li>
+        <li>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
         </li>
         <!--<li>-->
           <!--<router-link to="/add-account" replace>-->
@@ -54,6 +92,7 @@
           </div>
 
         </li>
+
       </ul>
     </div>
   </nav>
