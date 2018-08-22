@@ -1,7 +1,7 @@
 <template>
   <div id="addOrder">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <navigation></navigation>
+    <navigation/>
     <table>
       <thead>
       <th>Account</th><th> Ticket Order</th>
@@ -20,7 +20,12 @@ import Navigation from './Navigation'
 import Footer from '@/components/footer.vue'
 export default {
   name: 'AddOrder',
-  components: {Footer, Navigation}
+  components: {Footer, Navigation},
+  data () {
+    return {
+      accNumber: ''
+    }
+  }
 }
 </script>
 
