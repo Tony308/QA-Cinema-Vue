@@ -13,6 +13,11 @@
           </router-link>
         </li>
         <li class="nav-item">
+          <router-link class="nav-link" to="/listings" replace >
+            Listings
+          </router-link>
+        </li>
+        <li class="nav-item">
           <router-link class="nav-link" to="/add-account" replace>
             Add Account
           </router-link>
@@ -22,12 +27,14 @@
             Add Order
           </router-link>
         </li>
+
         <li class="nav-item dropdown">
           <router-link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown Menu
           </router-link>
 
         </li>
+
         <li class="nav-item">
           <router-link>Opening Times</router-link>
         </li>
