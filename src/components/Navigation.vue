@@ -42,18 +42,6 @@
             Ticket Booking
           </router-link>
         </li>
-        <li class="nav-item dropdown">
-
-          <router-link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <a>Dropdown Menu</a>
-          </router-link>
-        </li>
-        <li>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </li>
       </ul>
       <ul class="navbar-nav mr-auto" style="position: relative; display: inline-block; margin:auto; float: right;">
         <li class="nav-item">
@@ -65,9 +53,9 @@
               <router-link to="/add-account" replace>
                 <a>Add Account</a>
               </router-link>
-              <router-link clas="dropdown-content" to="/add-order" replace>
-                <a>Add Order</a>
-              </router-link>
+              <!--<router-link clas="dropdown-content" to="/add-order" replace>-->
+                <!--<a>Add Order</a>-->
+              <!--</router-link>-->
             </div>
           </div>
         </li>

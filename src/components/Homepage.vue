@@ -70,6 +70,7 @@
 <script>
 import navigation from '../components/Navigation'
 import axios from 'axios'
+import Footer from './Footer'
 
 export default {
   data () {
@@ -81,6 +82,7 @@ export default {
   },
   name: 'Homepage',
   components: {
+    Footer,
     'navigation': navigation
   },
   mounted: function () {
@@ -144,6 +146,5 @@ export default {
   img {
     height:100%;
   }
-
 
 </style>

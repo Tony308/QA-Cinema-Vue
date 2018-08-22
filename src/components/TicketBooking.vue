@@ -1,33 +1,36 @@
 <template>
-<div>
-
-<navigation></navigation>
+<div id="ticket-booking">
+  <navigation/>
   <div class="content">
     <h1>QA Cinema</h1>
     <div class="main">
       <div class="demo">
-        <div id="seat-map">
-          <div class="front">SCREEN</div>
-        </div>
-        <div class="booking-details">
-          <ul class="book-left">
-            <li>Movie </li>
-            <li>Time </li>
-            <li>Tickets</li>
-            <li>Total</li>
-            <li>Seats :</li>
-          </ul>
-          <ul class="book-right">
-            <li>: Mission Impossible</li>
-            <li>: April 3, 21:00</li>
-            <li>: <span id="counter">0</span></li>
-            <li>: <b><i>$</i><span id="total">0</span></b></li>
-          </ul>
-          <div class="clear"></div>
-          <ul id="selected-seats" class="scrollbar scrollbar1"></ul>
-          <button class="checkout-button">Book Now</button>
-          <div id="legend"></div>
-        </div>
+        <table class="book-right">
+          <tr>
+            <td>Movie</td> <td>Ticket</td> <td>Quantity</td> <td v-if="total !== 0">Total</td>
+          </tr>
+          <tr>
+            <td>
+              <select name="movies" v-model="selectedMovie">
+                <option v-for="item in movies" :value="item.Title" v-on:key="movie-id">{{item.Title}}</option>
+              </select>
+            </td>
+            <td>
+              <select name="tickets" v-model="selectedTicket">
+                <option v-for="item in tickets" :value="item.price" v-on:key="movie-id"> {{item.type}}</option>
+              </select>
+            </td>
+            <td>
+              <input v-model="quantity" type="number" >
+            </td>
+            <td v-if="this.total !== 0"> {{total}}</td>
+            <td>
+              <input type="button" name="" value="Add to Cart" v-on:click="addToCart">
+            </td>
+
+          </tr>
+        </table>
+        <input class="checkout-button" type="button" value="Book Now">
         <div style="clear:both"></div>
       </div>
     </div>
@@ -37,29 +40,86 @@
 </template>
 
 <script>
-import navigation from '@/components/Navigation'
-// import seatchart from '@/css/jquery.seat-chart.js'
-import seatmap from '@/JavaScript/Seatmap.js'
-// import nicescroll from '@/css/jquery.nicescroll.js'
-// import seatcharts2 from '@/css/jquery.seat-chart.js/jquery.seat-charts.min.js'
-// import seatingscript from '@/css/scripts.js'
-// import jquerynumber from '@/css/jquery.seat-charts.js/jquery-1.11.0.min.js'
+import navigation from '../components/Navigation'
+import axios from 'axios'
 
 export default {
   name: 'TicketBookingFilm',
   components: {
-    'navigation': navigation,
-    'seatmap': seatmap
-    // 'seatchart': seatchart
-    // 'nicescroll': nicescroll,
-    // 'seatcharts2': seatcharts2,
-    // 'seatingscript': seatingscript,
-    // 'jquerynumber': jquerynumber
+    'navigation': navigation
+  },
+  data () {
+    return {
+      movies: [],
+      tickets: [],
+      orders: [],
+      total: 0,
+      selectedMovie: '',
+      selectedTicket: '',
+      quantity: 0,
+      orderTickets: []
+    }
+  },
+  methods: {
+    getMovies () {
+      axios.get('http://localhost:8182/movie/getAll')
+        .then(response => {
+          this.movies = response.data
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    getOrders () {
+      axios.get('http://localhost:8182/order/getAll')
+        .then(response => {
+          this.orders = response.data
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    getTickets () {
+      axios.get('http://localhost:8182/ticket/getAll')
+        .then(response => {
+          this.tickets = response.data
+          console.log(response)
+        }).catch(error => {
+          console.log(error)
+        })
+    },
+    addToCart () {
+      this.total = this.total + (this.quantity * this.selectedTicket)
+      this.selectedMovie = ''
+      this.quantity = 0
+      this.selectedTicket = ''
+    }
+  },
+  mounted: function () {
+    this.getOrders()
+    this.getTickets()
+    this.getMovies()
   }
 }
 </script>
 
 <style scoped>
+
+  table, tr, td {
+    margin: 1%;
+    border: solid black 2px;
+    padding:auto;
+  }
+  #ticket-booking {
+    margin:auto;
+    width: 100%;
+  }
+
+  .content {
+    margin: 2% 10% 2% 10%;
+  }
   h1, h2 {
     font-weight: normal;
   }
@@ -141,4 +201,5 @@ export default {
     margin-top: 10px;
     line-height: 2;
   }
+
 </style>
