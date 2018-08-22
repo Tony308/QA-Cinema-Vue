@@ -18,6 +18,11 @@
             Add Account
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/listings" replace >
+            Listings
+          </router-link>
+        </li>
         <li>
           <router-link class="nav-link" to="/add-order" replace>
             Add Order
@@ -33,14 +38,6 @@
         <li class="nav-item">
           <router-link>Opening Times</router-link>
         </li>
-        <li>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="searchTerm">
-              <router-link to="/search" replace>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </router-link>
-          </form>
-        </li>
       </ul>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -53,12 +50,7 @@
 
 <script>
 export default {
-  name: 'Navigation',
-  data: function () {
-    return {searchTerm: ''}
-  },
-  components: {
-  }
+  name: 'Navigation'
 }
 </script>
 <style scoped>
