@@ -12,24 +12,49 @@
            Home <span class="sr-only">(current)</span>
           </router-link>
         </li>
+
         <li class="nav-item">
-          <router-link class="nav-link" to="/add-account" replace>
-            Add Account
+          <router-link class="nav-link" to="/Aboutus" replace>
+            About Us
           </router-link>
         </li>
-        <li>
-          <router-link class="nav-link" to="/add-order" replace >
-            Add Order
+
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Movie-Listings" replace>
+            Movie Listings
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Opening-times" replace>
+            Opening Times
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Contact-us" replace>
+            Contact Us
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Ticket-booking" replace>
+            Ticket Booking
           </router-link>
         </li>
         <li class="nav-item dropdown">
           <router-link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown Menu
           </router-link>
-
         </li>
         <li class="nav-item">
-          <router-link>Opening Times</router-link>
+          <router-link class="nav-link" to="/add-account" replace>
+            Add Account
+          </router-link>
+        </li>
+        <li>
+          <router-link class="nav-link" to="/add-order" replace>
+            Add Order
+          </router-link>
         </li>
         <li>
           <form class="form-inline my-2 my-lg-0">
@@ -42,6 +67,7 @@
         <li class="nav-item">
           <router-link to="/account/login"> Account </router-link>
         </li>
+
       </ul>
     </div>
   </nav>
