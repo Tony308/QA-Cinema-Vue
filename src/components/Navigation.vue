@@ -53,9 +53,12 @@
               <router-link to="/add-account" replace>
                 <a>Add Account</a>
               </router-link>
-              <!--<router-link clas="dropdown-content" to="/add-order" replace>-->
-                <!--<a>Add Order</a>-->
-              <!--</router-link>-->
+              <router-link to="/account" replace>
+                <a>Get Accounts</a>
+              </router-link>
+              <router-link to="/edit-account" replace>
+                <a>Edit Account</a>
+              </router-link>
             </div>
           </div>
         </li>

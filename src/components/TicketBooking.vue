@@ -48,18 +48,6 @@ export default {
   components: {
     'navigation': navigation
   },
-  data () {
-    return {
-      movies: [],
-      tickets: [],
-      orders: [],
-      total: 0,
-      selectedMovie: '',
-      selectedTicket: '',
-      quantity: 0,
-      orderTickets: []
-    }
-  },
   methods: {
     getMovies () {
       axios.get('http://localhost:8182/movie/getAll')
@@ -97,10 +85,22 @@ export default {
       this.selectedTicket = ''
     }
   },
+  data: function () {
+    return {
+      movies: [],
+      tickets: [],
+      orders: [],
+      total: 0,
+      selectedMovie: '',
+      selectedTicket: '',
+      quantity: 0,
+      orderTickets: []
+    }
+  },
   mounted: function () {
-    this.getOrders()
-    this.getTickets()
-    this.getMovies()
+    setTimeout(this.getOrders(), 200)
+    setTimeout(this.getTickets(), 200)
+    setTimeout(this.getMovies(), 200)
   }
 }
 </script>

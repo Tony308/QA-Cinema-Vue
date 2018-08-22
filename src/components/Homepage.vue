@@ -86,7 +86,7 @@ export default {
     'navigation': navigation
   },
   mounted: function () {
-    this.getPoster()
+    setTimeout(this.getPoster())
   },
   methods: {
     getPoster () {
@@ -108,6 +108,8 @@ export default {
 <style scoped>
   .img-responsive {
     display: inline-block;
+
+    padding: 5%;
   }
   .carousel-image {
     width:100%;

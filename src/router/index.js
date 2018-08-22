@@ -10,6 +10,8 @@ import Aboutus from '@/components/Aboutus'
 import movielisings from '@/components/MovieListings'
 import openingtimes from '@/components/OpeningTimes'
 import contactus from '@/components/ContactUs'
+import editAccount from '@/components/EditAccount'
+
 // import nicescroll from '@/css/jquery.nicescroll.js'
 // import seatchart from '@/css/jquery.seat-chart.js'
 // import seatcharts2 from '@/css/jquery.seat-chart.js/jquery.seat-charts.min.js'
@@ -69,6 +71,11 @@ export default new Router({
       path: '/Contact-Us',
       name: 'ContactUs',
       component: contactus
+    },
+    {
+      path: '/edit-account',
+      name: 'edit-account',
+      component: editAccount
     }
     // {
     //   path: '/seat-chart',
