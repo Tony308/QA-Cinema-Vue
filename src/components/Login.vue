@@ -26,8 +26,8 @@
 <script>
 import Navigation from './Navigation'
 import axios from 'axios'
-
 export default {
+
   name: 'Login',
   components: {Navigation},
   data: function () {
@@ -35,11 +35,22 @@ export default {
       username: '',
       password: '',
       tuples: [],
-      msg: ''
+      msg: '',
+      state: ''
     }
   },
   methods: {
-    login () {
+    login: function () {
+      if (this.firstname === '') {
+        this.msg = 'Please enter a firstname'
+        return this.msg
+      } else if (this.Surname === '') {
+        this.msg = 'Please enter a Surname'
+        return this.msg
+      } else {
+        this.msg = ''
+      }
+
       axios.post('http://localhost:8182/account/login', {
         'accountNumber': this.username,
         'password': this.password
@@ -57,6 +68,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div id="post-account">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <navigation/>
     <table>
@@ -10,17 +10,16 @@
       <tr>
         <td><input v-model="firstname" placeholder="First Name" alt="First Name"></td>
         <td><input v-model="Surname" placeholder="Surname" alt="Surname"/></td>
-        <td><input v-model="accNumber" placeholder="Account Number" alt="Account Number"/></td>
         <td><input type="submit" alt="Submit" v-on:click="createAccount"/>     </td>
       </tr><br>
       <tr>
         <td>ID</td><td>First Name</td><td>Last Name</td><td>Account Number</td>
       </tr>
       <tr v-for="item in tuples">
-        <td>{{item.id}}</td>
-        <td>{{item.firstName}}</td>
-        <td>{{item.lastName}}</td>
-        <td>{{item.accountNumber}}</td>
+        <td> <a>{{item.id}}</a></td>
+        <td><a>{{item.firstName}}</a></td>
+        <td><a>{{item.lastName}}</a></td>
+        <td><a>{{item.accountNumber}}</a></td>
       </tr>
     </table>
 
@@ -33,10 +32,9 @@
         <td><input v-model="id" placeholder="ID" alt="ID" type="text"></td>
         <td><input type="text" v-model="firstname" placeholder="First Name" alt="First Name"></td>
         <td><input type="text" v-model="Surname" placeholder="Surname" alt="Surname"/></td>
-        <td><input type="text" v-model="accNumber" placeholder="Account Number" alt="Account Number"/></td>
         <td><button v-on:click="updateAccount"> Edit </button></td>
       </tr>
-        <p id="confirmation" v-bind:value="msg"> {{msg}}</p>
+      <a v-if="msg !== ''" id="confirmation" v-bind:value="msg"> {{msg}}</a>
     </table>
   </div>
 </template>
@@ -49,12 +47,11 @@ export default {
   components: {Navigation},
   data () {
     return {
-      // props: ['items'],
       firstname: '',
       Surname: '',
-      accNumber: '',
       tuples: [],
-      id: ''
+      id: '',
+      msg: ''
     }
   },
   mounted: function () {
@@ -73,10 +70,17 @@ export default {
         })
     },
     createAccount () {
+      if (this.firstname === '') {
+        this.msg = 'You haven\'t entered a firstname'
+      } else if (this.Surname === '') {
+        this.msg = 'You haven\'t entered a surname'
+      } else {
+        this.msg = ''
+      }
+
       axios.post('http://www.localhost:8182/account/add', {
         'firstName': this.firstname,
-        'lastName': this.Surname,
-        'accountNumber': this.accNumber
+        'lastName': this.Surname
       })
         .then(response => {
           // JSON responses are automatically parsed.
@@ -86,13 +90,12 @@ export default {
         .catch(e => {
           this.errors.push(e)
         })
-      setTimeout(this.getAccounts, 500)
+      setTimeout(this.getAccounts, 250)
     },
     updateAccount () {
       axios.put('http://localhost:8182/account/edit/' + this.id, {
         'firstName': this.firstname,
-        'lastName': this.Surname,
-        'accountNumber': this.accNumber
+        'lastName': this.Surname
       })
         .then(response => {
           // JSON responses are automatically parsed.
@@ -102,7 +105,7 @@ export default {
         .catch(e => {
           this.errors.push(e)
         })
-      setTimeout(this.getAccounts, 500)
+      setTimeout(this.getAccounts, 250)
     },
     deleteAccount () {
       axios.delete('http://www.localhost:8182/account/delete/' + this.id)
@@ -113,8 +116,7 @@ export default {
         .catch(e => {
           this.errors.push(e)
         })
-      setTimeout(this.getAccounts, 500)
-
+      setTimeout(this.getAccounts, 250)
     }
   }
 }
@@ -129,4 +131,8 @@ export default {
     border: solid black 2px;
     padding:2%;
   }
+  #post-account {
+    width: 100%;
+  }
+
 </style>
