@@ -9,7 +9,7 @@ import navigation from '@/components/Navigation'
 import ticketBookingList from '@/components/TicketBookingListing'
 import ticketBooking from '@/components/TicketBooking'
 import Aboutus from '@/components/Aboutus'
-import movielisings from '@/components/MovieListings'
+import movielistings from '@/components/MovieListings'
 import openingtimes from '@/components/OpeningTimes'
 import contactus from '@/components/ContactUs'
 // import nicescroll from '@/css/jquery.nicescroll.js'
@@ -50,8 +50,6 @@ export default new Router({
       component: account
     },
     {
-
-
       path: '/ticket-booking',
       name: 'ticket-booking',
       component: ticketBookingList
@@ -69,7 +67,7 @@ export default new Router({
     {
       path: '/Movie-Listings',
       name: 'Movie-Listings',
-      component: movielisings
+      component: movielistings
     },
     {
       path: '/Opening-Times',
