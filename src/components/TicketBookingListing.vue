@@ -39,7 +39,7 @@
            <div class="p-5">
              <h2 class="display-4">The Incredibles 2</h2>
              <p>Bob Parr takes a break from saving the world only to face up to his biggest challenge to date; managing the impressive superpowers of his baby son Jack-Jack while his wife is out busting criminals.</p>
-             <router-link to="/ticket-booking2">
+             <router-link to="/book-ticket" replace>
              <a class="btn btn-primary btn-xl rounded-pill">Click to Book Now</a></router-link>
            </div>
          </div>
@@ -58,7 +58,7 @@
            <div class="p-5">
              <h2 class="display-4">Mission:Impossible FALLOUT </h2>
              <p>Ethan’s past returns to haunt him as the threat of nuclear terrorism casts a dark shadow over the world.</p>
-             <router-link to="/ticket-booking2">
+             <router-link to="/book-ticket" replace>
                <a class="btn btn-primary btn-xl rounded-pill">Click to Book Now</a></router-link>
            </div>
          </div>
@@ -77,7 +77,7 @@
            <div class="p-5">
              <h2 class="display-4">Marvel: ANT-MAN AND The WASP</h2>
              <p>As Scott Lang struggles to juggle his role as father with his Ant-Man duties, he is assigned a dangerous new mission that sees him team up with The Wasp.</p>
-             <router-link to="/ticket-booking2">
+             <router-link to="/book-ticket" replace>
                <a class="btn btn-primary btn-xl rounded-pill">Click to Book Now</a></router-link>
            </div>
          </div>
@@ -96,13 +96,15 @@
            <div class="p-5">
              <h2 class="display-4">The MEG</h2>
              <p>200 miles off the coast of China, a pre-historic monster emerges from extinction to threaten the crew of a submarine deep in its habitat… Jason Statham, Rainn Wilson, and Ruby Rose star in this thrilling tale about what happens when Man VS Beast goes supersized…</p>
-             <router-link to="/ticket-booking2">
-               <a class="btn btn-primary btn-xl rounded-pill">Click to Book Now</a></router-link>
+             <router-link to="/book-ticket" replace>
+               <a class="btn btn-primary btn-xl rounded-pill">Click to Book Now</a>
+             </router-link>
            </div>
          </div>
        </div>
      </div>
    </section>
+
     <!--Footer -->
    <div>
    <footer class="py-5 bg-black">
@@ -116,13 +118,29 @@
 
 <script>
 import navigation from '@/components/Navigation'
+import axios from 'axios'
 
 export default {
   name: 'TicketBooking',
   components: {
     'navigation': navigation
+  },
+  data () {
+    return {
+    }
+  },
+  getOrders () {
+    axios.get('http://localhost:8182/order/getAll')
+      .then(response => {
+        this.orders = response.data
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 }
+
 </script>
 
 <style scoped>

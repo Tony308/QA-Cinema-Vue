@@ -2,16 +2,16 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import homepage from '@/components/Homepage'
 import addAccount from '@/components/AddAccount.vue'
-import addOrder from '@/components/AddOrder'
 import Login from '@/components/Login'
 import account from '@/components/Account'
-import navigation from '@/components/Navigation'
 import ticketBookingList from '@/components/TicketBookingListing'
-import ticketBooking from '@/components/TicketBooking'
+import bookTicket from '@/components/TicketBooking'
 import Aboutus from '@/components/Aboutus'
 import movielistings from '@/components/MovieListings'
 import contactus from '@/components/ContactUs'
+import editAccount from '@/components/EditAccount'
 import FilmClassifications from '@/components/FilmClassifications'
+
 // import nicescroll from '@/css/jquery.nicescroll.js'
 // import seatchart from '@/css/jquery.seat-chart.js'
 // import seatcharts2 from '@/css/jquery.seat-chart.js/jquery.seat-charts.min.js'
@@ -19,8 +19,6 @@ import FilmClassifications from '@/components/FilmClassifications'
 // import jquerynumber from '@/css/jquery.seat-charts.js/jquery-1.11.0.min.js'
 // import seatmap from '@/JavaScript/Seatmap.js'
 
-// import BootstrapVue from 'bootstrap-vue'
-// Vue.use(BootstrapVue)
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -33,11 +31,6 @@ export default new Router({
       path: '/add-account',
       name: 'createAccount',
       component: addAccount
-    },
-    {
-      path: '/add-order',
-      name: 'createOrder',
-      component: addOrder
     },
     {
       path: '/account/login',
@@ -55,9 +48,9 @@ export default new Router({
       component: ticketBookingList
     },
     {
-      path: '/ticket-booking2',
-      name: 'ticket-booking2',
-      component: ticketBooking
+      path: '/book-ticket',
+      name: 'book-ticket',
+      component: bookTicket
     },
     {
       path: '/Aboutus',
@@ -75,9 +68,14 @@ export default new Router({
       component: contactus
     },
     {
+      path: '/edit-account',
+      name: 'edit-account',
+      component: editAccount
+
       path: '/Film-Classifications',
       name: 'FilmClassifications',
       component: FilmClassifications
+
     }
     // {
     //   path: '/seat-chart',

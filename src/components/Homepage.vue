@@ -98,6 +98,7 @@
 <script>
 import navigation from '../components/Navigation'
 import axios from 'axios'
+import Footer from './Footer'
 
 export default {
   data () {
@@ -109,10 +110,11 @@ export default {
   },
   name: 'Homepage',
   components: {
+    Footer,
     'navigation': navigation
   },
   mounted: function () {
-    this.getPoster()
+    setTimeout(this.getPoster())
   },
   methods: {
     getPoster () {
@@ -174,6 +176,8 @@ export default {
   .btn-secondary:focus{box-shadow:0 0 0 .2rem rgba(255,106,0,.5)}
   .img-responsive {
     display: inline-block;
+
+    padding: 5%;
   }
   .carousel-image {
     width:100%;

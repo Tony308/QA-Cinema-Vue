@@ -47,6 +47,7 @@
             <a>Dropdown Menu</a>
           </router-link>
         </li>
+
       </ul>
       <ul class="navbar-nav mr-auto" style="position: relative; display: inline-block; margin:auto; float: right;">
         <li class="nav-item">
@@ -59,8 +60,11 @@
               <router-link to="/add-account" replace>
                 <a>Add Account</a>
               </router-link>
-              <router-link clas="dropdown-content" to="/add-order" replace>
-                <a>Add Order</a>
+              <router-link to="/account" replace>
+                <a>Get Accounts</a>
+              </router-link>
+              <router-link to="/edit-account" replace>
+                <a>Edit Account</a>
               </router-link>
             </div>
           </div>
