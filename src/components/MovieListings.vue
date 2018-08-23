@@ -130,7 +130,7 @@ export default {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #008CBA;
+    background-color: #2e0d7a;
     margin-left: 25%;
   }
   .container:hover .overlay {
