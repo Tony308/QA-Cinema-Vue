@@ -26,6 +26,7 @@
       <div class="bg-circle-4 bg-circle"></div>
     </header>
   </section>
+   <br>
    <div class="listings">
       <input style="width:25%; align:center; margin:auto;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search"><br>
       <ul>
