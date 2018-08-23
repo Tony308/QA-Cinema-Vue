@@ -1,21 +1,49 @@
 <template>
 <div>
+  <title>Book Tickets Now!</title>
+  <link src="@/css/bootstrap.min.css" rel="stylesheet">
 
-<navigation></navigation>
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link src="@/css/one-page-wonder.css/one-page-wonder.min.css" rel="stylesheet">
+  <link src="@/css/one-page-wonder.css" rel="stylesheet">
+  <link src="@/css/jquery.seat-charts.css" rel="stylesheet">
+
+  <navigation></navigation>
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Book Your Tickets</h1>
+        <h2 class="masthead-subheading mb-0"></h2>
+        <a src="#" class="btn btn-primary btn-xl rounded-pill mt-5">All Screenings</a>
+        <a src="#" class="btn btn-primary btn-xl rounded-pill mt-5">Book Now!</a>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+  <div align="Center">
   <div class="content">
-    <h1>Book Your Tickets</h1>
+    <br>
+    <br>
+    <h1>Fill out the fields below</h1>
         <form class="form-horizontal">
           <fieldset>
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="emailaddress">Email Address</label>
+              <label class="col-md-4 control-label" for="emailaddress"><b>Email Address</b></label>
               <div class="col-md-4">
                 <input id="emailaddress" name="emailaddress" type="text" placeholder="" class="form-control input-md" required="">
               </div>
             </div>
             <!-- Select Location -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="Location">Select your Location</label>
+              <label class="col-md-4 control-label" for="Location"><b>Select your Location</b></label>
               <div class="col-md-4">
                 <select id="Location" name="Location" class="form-control">
                   <option value="0">------ SELECT LOCATION ------</option>
@@ -29,122 +57,87 @@
                 </select>
               </div>
             </div>
-            <!-- Select Movie -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="Movie">Select your Movie</label>
-              <div class="col-md-4">
-                <select id="Movie" name="Movie" class="form-control">
-                  <option value="0">------ SELECT MOVIE ------</option>
-                  <option value="1">Incredibles 2</option>
-                  <option value="2">Antman and the Wasp</option>
-                  <option value="3">Misson Impossible: Fallout</option>
-                  <option value="4">The Equalizer 2</option>
-                  <option value="5">Mamma Mia</option>
-                  <option value="6">The MEG</option>
-                  <option value="7">Slender Man</option>
-                  <option value="8">Tag</option>
-                  <option value="9">Supporting the Girls</option>
-                  <option value="10">Searching</option>
-                  <option value="11">The Festival</option>
-                  <option value="12">The Happytime Murders</option>
-                  <option value="13">Disney's Christopher Robin</option>
-                  <option value="14">The Spy Who Dumped Me</option>
-                  <option value="15">ALPHA</option>
-                </select>
-              </div>
-            </div>
-            <!-- Select Number of Tickets -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="NoofTickets">Number of Tickets</label>
-              <div class="col-md-4">
-                <select id="NoofTickets" name="NoofTickers" class="form-control">
-                  <option value="0">------ SELECT TICKETS ------</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                </select>
-              </div>
-            </div>
-
             <!-- Multiple Radios -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="airboatsize">Airboat Size</label>
+              <label class="col-md-4 control-label" for="TicketType1"><b>Ticket Type</b></label>
               <div class="col-md-4">
                 <div class="radio">
-                  <label for="airboatsize-0">
-                    <input type="radio" name="airboatsize" id="airboatsize-0" value="1" checked="checked">
-                    Small
+                  <label for="TicketType1">
+                    <input type="checkbox" name="TicketType" id="TicketType1" value="1" checked="checked">
+                    Adult
                   </label>
+                  <select id="NoofTickets1" name="NoofTickets" class="form-control">
+                    <option value="0"><b>------ SELECT TICKET QUANTITY ------</b></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
                 </div>
                 <div class="radio">
-                  <label for="airboatsize-1">
-                    <input type="radio" name="airboatsize" id="airboatsize-1" value="2">
-                    Large
+                  <label for="TicketType2">
+                    <input type="checkbox" name="TicketType" id="TicketType2" value="2">
+                    Child
                   </label>
+                  <select id="NoofTickets2" name="NoofTickets" class="form-control">
+                    <option value="0">------ SELECT TICKET QUANTITY------</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
                 </div>
               </div>
             </div>
-
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="quantity">Number of People</label>
+              <label class="col-md-4 control-label" for="dateselection"><b>Date</b></label>
               <div class="col-md-4">
-                <input id="quantity" name="quantity" type="text" placeholder="" class="form-control input-md">
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="dateselection">Date</label>
-              <div class="col-md-4">
-                <input id="dateselection" name="dateselection" type="text" placeholder="" class="form-control input-md">
-
+                <input id="dateselection" name="dateselection" type="date" placeholder="" class="form-control input-md">
               </div>
             </div>
 
             <!-- Select Basic -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="timeselect">Time</label>
+              <label class="col-md-4 control-label" for="timeselect"><b>Select Movie Time</b></label>
               <div class="col-md-4">
                 <select id="timeselect" name="timeselect" class="form-control">
-                  <option value="1">9:45a</option>
-                  <option value="2">12p</option>
-                  <option value="3">2p</option>
-                  <option value="4">4p</option>
+                  <option value="1">10:00am</option>
+                  <option value="2">11:30am</option>
+                  <option value="3">12:00pm</option>
+                  <option value="4">13:00pm</option>
+                  <option value="4">14:30pm</option>
+                  <option value="4">15:00pm</option>
+                  <option value="4">15:45pm</option>
+                  <option value="4">16:30pm</option>
+                  <option value="4">18:00pm</option>
+                  <option value="4">19:30pm</option>
+                  <option value="4">20:00pm</option>
+                  <option value="4">20:30pm</option>
+                  <option value="4">21:00pm</option>
+                  <option value="4">21:30pm</option>
+                  <option value="4">22:00pm</option>
+                  <option value="4">23:30pm</option>
                 </select>
               </div>
             </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="hotel">Hotel Name</label>
-              <div class="col-md-4">
-                <input id="hotel" name="hotel" type="text" placeholder="" class="form-control input-md">
-
-              </div>
-            </div>
-
-            <!-- Multiple Checkboxes (inline) -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="pickup">Hotel Pickup</label>
-              <div class="col-md-4">
-                <label class="checkbox-inline" for="pickup-0">
-                  <input type="checkbox" name="pickup" id="pickup-0" value="1">
-                  Yes
-                </label>
-              </div>
-            </div>
-
+            <a class="btn btn-primary btn-xl rounded-pill">Click to Book Now</a>
           </fieldset>
         </form>
 
@@ -152,7 +145,8 @@
       </div>
       <br>
       <br>
-      <div>
+      </div>
+        <div>
         <footer class="py-5 bg-black">
           <div class="container">
             <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
