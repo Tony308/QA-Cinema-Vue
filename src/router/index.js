@@ -7,10 +7,10 @@ import account from '@/components/Account'
 import ticketBookingList from '@/components/TicketBookingListing'
 import bookTicket from '@/components/TicketBooking'
 import Aboutus from '@/components/Aboutus'
-import movielisings from '@/components/MovieListings'
-import openingtimes from '@/components/OpeningTimes'
+import movielistings from '@/components/MovieListings'
 import contactus from '@/components/ContactUs'
 import editAccount from '@/components/EditAccount'
+import FilmClassifications from '@/components/FilmClassifications'
 
 // import nicescroll from '@/css/jquery.nicescroll.js'
 // import seatchart from '@/css/jquery.seat-chart.js'
@@ -60,12 +60,7 @@ export default new Router({
     {
       path: '/Movie-Listings',
       name: 'Movie-Listings',
-      component: movielisings
-    },
-    {
-      path: '/Opening-Times',
-      name: 'Opening-Times',
-      component: openingtimes
+      component: movielistings
     },
     {
       path: '/Contact-Us',
@@ -76,6 +71,11 @@ export default new Router({
       path: '/edit-account',
       name: 'edit-account',
       component: editAccount
+
+      path: '/Film-Classifications',
+      name: 'FilmClassifications',
+      component: FilmClassifications
+
     }
     // {
     //   path: '/seat-chart',
