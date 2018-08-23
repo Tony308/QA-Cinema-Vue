@@ -26,7 +26,6 @@
       <div class="bg-circle-4 bg-circle"></div>
     </header>
   </section>
-  
    <div class="listings">
       <input style="width:25%; align:center; margin:auto;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search"><br>
       <ul>
@@ -46,7 +45,6 @@
       </ul>
     </div>
 
-  </div>
    <!--Footer -->
    <div>
      <footer class="py-5 bg-black">
@@ -134,7 +132,6 @@ export default {
   .btn-secondary:active,.btn-secondary:focus,.btn-secondary:hover{background-color:#c50!important;border-color:#c50!important}
   .btn-secondary:focus{box-shadow:0 0 0 .2rem rgba(255,106,0,.5)}
 
- 
   .container {
     width:100%;
     text-align:center;
