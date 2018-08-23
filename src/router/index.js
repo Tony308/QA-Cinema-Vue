@@ -50,6 +50,8 @@ export default new Router({
       component: account
     },
     {
+
+
       path: '/ticket-booking',
       name: 'ticket-booking',
       component: ticketBookingList
