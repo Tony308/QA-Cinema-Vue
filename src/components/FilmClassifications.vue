@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title>Contact Us!</title>
+    <title>Film Classifications</title>
     <link src="@/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -12,64 +12,62 @@
     <link src="@/css/one-page-wonder.css" rel="stylesheet">
     <link src="@/css/jquery.seat-charts.css" rel="stylesheet">
     <navigation></navigation>
-  <!-- Contact Section -->
-  <section id="contact">
+    <!-- Contact Section -->
+    <section id="Film Classification">
       <header class="masthead text-center text-white">
         <div class="masthead-content">
           <div class="container"></div>
-          <h1 class="masthead-heading mb-0">Contact Us</h1>
-            <h2 class="masthead-subheading mb-0"></h2>
+          <h1 class="masthead-heading mb-0">Film Classifications</h1>
+          <h2 class="masthead-subheading mb-0"></h2>
         </div>
         <div class="bg-circle-1 bg-circle"></div>
         <div class="bg-circle-2 bg-circle"></div>
         <div class="bg-circle-3 bg-circle"></div>
         <div class="bg-circle-4 bg-circle"></div>
       </header>
-    <br>
+      <br>
       <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-          <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-          <form name="sentMessage" id="contactForm" novalidate="novalidate">
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Name</label>
-                <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Email Address</label>
-                <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Phone Number</label>
-                <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Message</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
-            </div>
-          </form>
-        </div>
+          <body>
+          <title> Film Classification </title>
+          <table class="table" align="center">
+            <thead class="thead-dark">
+            <th>Film Classification</th>
+            <th></th>
+            <th style="width: 624px;">Description</th>
+            </thead>
+            <tr>
+              <td> <img src="@/images/Universal.png" class="pics"></td>
+              <td></td>
+              <td> Anyone of any age can view this movie.</td>
+            </tr>
+
+            <tr>
+              <td> <img src="@/images/pg.png" class="pics"></td>
+              <td></td>
+              <td> Parental Guidance. Some scenes may be unsuitable for young persons. </td>
+            </tr>
+
+            <tr>
+              <td> <img src="@/images/12.png" class="pics"></td>
+              <td></td>
+              <td> Only persons over the age of 12 can view this movie.</td>
+            </tr>
+
+            <tr>
+              <td> <img src="@/images/15.png" class="pics"></td>
+              <td></td>
+              <td> Only persons over the age of 15 can view this movie.</td>
+            </tr>
+
+            <tr>
+              <td> <img src="@/images/18.png" class="pics"></td>
+              <td></td>
+              <td> Only persons over the age of 18 can view this movie.</td>
+            </tr>
+          </table>
+          </body>
       </div>
-    </div>
-  </section>
+    </section>
     <!--Footer -->
     <div>
       <footer class="py-5 bg-black">

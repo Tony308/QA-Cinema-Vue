@@ -9,35 +9,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+
         <li class="nav-item active">
 
           <router-link class="nav-link" style="margin:10% 0 0 20%;" to="/" replace>
            Home <span class="sr-only">(current)</span>
           </router-link>
         </li>
-
         <li class="nav-item">
           <router-link class="nav-link" to="/Aboutus" replace>
             About Us
           </router-link>
         </li>
-
-
         <li class="nav-item">
           <router-link class="nav-link" to="/Movie-Listings" replace>
             Movie Listings
           </router-link>
         </li>
-
-        <li class="nav-item">
-          <router-link class="nav-link" to="/Opening-times" replace>
-            Opening Times
-          </router-link>
-        </li>
-
         <li class="nav-item">
           <router-link class="nav-link" to="/Contact-us" replace>
             Contact Us
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Film-Classifications" replace>
+            Film Classifications
           </router-link>
         </li>
         <li class="nav-item">

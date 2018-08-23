@@ -109,7 +109,6 @@
      <div class="container">
        <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
      </div>
-     <!-- /.container -->
    </footer>
    </div>
  </div>
@@ -148,11 +147,11 @@ export default {
   .navbar-custom{padding-top:1rem;padding-bottom:1rem;background-color:rgba(0,0,0,.7)}
   .navbar-custom .navbar-brand{text-transform:uppercase;font-size:1rem;letter-spacing:.1rem;font-weight:700}
   .navbar-custom .navbar-nav .nav-item .nav-link{text-transform:uppercase;font-size:.8rem;font-weight:700;letter-spacing:.1rem}
-  header.masthead{position:relative;overflow:hidden;padding-top:calc(7rem + 72px);padding-bottom:7rem;background:linear-gradient(0deg, #ccf8ff 0, #4fafee 100%);background-repeat:no-repeat;background-position:center center;background-attachment:scroll;background-size:cover}
+  header.masthead{position:relative;overflow:hidden;padding-top:calc(7rem + 72px);padding-bottom:7rem;background:linear-gradient(0deg, #b368ff 0, #4970ee 100%);background-repeat:no-repeat;background-position:center center;background-attachment:scroll;background-size:cover}
   header.masthead .masthead-content{z-index:1;position:relative}
   header.masthead .masthead-content .masthead-heading{font-size:4rem}
   header.masthead .masthead-content .masthead-subheading{font-size:2rem}
-  header.masthead .bg-circle{z-index:0;position:absolute;border-radius:100%;background:linear-gradient(0deg, #4069ee 0, #ff5660 100%)}
+  header.masthead .bg-circle{z-index:0;position:absolute;border-radius:100%;background:linear-gradient(0deg, #2e0d7a 0, #ff153d 100%)}
   header.masthead .bg-circle-1{height:90rem;width:90rem;bottom:-55rem;left:-55rem}
   header.masthead .bg-circle-2{height:50rem;width:50rem;top:-25rem;right:-25rem}
   header.masthead .bg-circle-3{height:20rem;width:20rem;bottom:-10rem;right:5%}
