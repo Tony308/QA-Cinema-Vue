@@ -8,12 +8,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <router-link class="nav-link" style="margin:10% 0 0 20%;" to="/" replace>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/" replace>
            Home <span class="sr-only">(current)</span>
           </router-link>
         </li>
-
         <li class="nav-item">
           <router-link class="nav-link" to="/Aboutus" replace>
             About Us
@@ -23,12 +22,6 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/Movie-Listings" replace>
             Movie Listings
-          </router-link>
-        </li>
-
-        <li class="nav-item">
-          <router-link class="nav-link" to="/Opening-times" replace>
-            Opening Times
           </router-link>
         </li>
 
@@ -47,12 +40,6 @@
           <router-link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <a>Dropdown Menu</a>
           </router-link>
-        </li>
-        <li>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </li>
       </ul>
       <ul class="navbar-nav mr-auto" style="position: relative; display: inline-block; margin:auto; float: right;">
