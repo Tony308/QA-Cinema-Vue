@@ -3,13 +3,16 @@
     <!--<a class="navbar-brand" >LOGO</a>-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <img src="@/images/QA Logo.jpg" style="margin-left:25px;width:45px; height:30px;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link class="nav-link" to="/" replace>
+
+        <li class="nav-item active">
+
+          <router-link class="nav-link" style="margin:10% 0 0 20%;" to="/" replace>
            Home <span class="sr-only">(current)</span>
           </router-link>
         </li>
@@ -47,6 +50,7 @@
       </ul>
       <ul class="navbar-nav mr-auto" style="position: relative; display: inline-block; margin:auto; float: right;">
         <li class="nav-item">
+
           <div class="dropdown">
             <div class="dropbtn">
               <router-link class="nav-link" to="/account/login"> Account </router-link>
@@ -80,14 +84,17 @@ export default {
   h1, h2 {
     font-weight: normal;
   }
+
   ul {
     list-style-type: none;
     padding: 0;
   }
+
   li {
     display: inline-block;
     margin: 0 10px;
   }
+
   a {
     color: #42b983;
   }

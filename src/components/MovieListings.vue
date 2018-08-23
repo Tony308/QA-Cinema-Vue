@@ -26,6 +26,27 @@
       <div class="bg-circle-4 bg-circle"></div>
     </header>
   </section>
+  
+   <div class="listings">
+      <input style="width:25%; align:center; margin:auto;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="search"><br>
+      <ul>
+        <li v-for="movie in filterMovies()" :key="movie">
+          <div class="container">
+            <img :src="movie.Poster" class="image">
+            <div class="overlay">
+              <div class="text" style="border:solid white 2px; padding:1%;"><h4> {{movie.Title}}</h4><br>
+                <p style="width: 250px;font-size: 15px">{{movie.Plot}}</p><br>
+                <p style="width: 250px;font-size: 15px">{{movie.Released}}</p>
+                <p style="width: 250px;font-size: 15px">{{movie.Genre}}</p>
+                <p style="width: 250px;font-size: 15px">{{movie.Runtime}}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
    <!--Footer -->
    <div>
      <footer class="py-5 bg-black">
@@ -40,10 +61,33 @@
 
 <script>
 import navigation from '@/components/Navigation'
+import axios from 'axios'
 export default {
-  name: 'TicketBookingFilm',
+  data () {
+    return {
+      rows: [],
+      filtered: [],
+      search: ''
+    }
+  },
+  name: 'MovieListings',
   components: {
     'navigation': navigation
+  },
+  mounted: function () {
+    axios.get('http://www.localhost:8182/movie/getAll')
+      .then(response => {
+        this.rows = response.data
+        console.log(response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  },
+  methods: {
+    filterMovies () {
+      return this.rows.filter(movie => movie.Title.toUpperCase().includes(this.search.toUpperCase()))
+    }
   }
 }
 </script>
@@ -89,4 +133,52 @@ export default {
   .btn-secondary{background-color:#ff6a00;border-color:#ff6a00}
   .btn-secondary:active,.btn-secondary:focus,.btn-secondary:hover{background-color:#c50!important;border-color:#c50!important}
   .btn-secondary:focus{box-shadow:0 0 0 .2rem rgba(255,106,0,.5)}
+
+ 
+  .container {
+    width:100%;
+    text-align:center;
+    align:center;
+    margin-left: 25%;
+    margin-top:7%;
+  }
+  .image {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #2e0d7a;
+    margin-left: 25%;
+  }
+  .container:hover .overlay {
+    opacity: 0.9  ;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  li {
+    display:inline-block;
+    position: relative;
+  }
+  listings {
+  }
 </style>

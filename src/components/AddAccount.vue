@@ -61,9 +61,11 @@ export default {
     getAccounts () {
       axios.get('http://www.localhost:8182/account/getAll')
         .then(response => {
+
           // JSON responses are automatically parsed.
           this.tuples = response.data
           console.log(response.data)
+
         })
         .catch(e => {
           this.errors.push(e)
