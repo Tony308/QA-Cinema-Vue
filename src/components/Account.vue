@@ -4,10 +4,10 @@
     <div>
       <table>
         <thead>
-        <th>ID</th> <th>First Name</th> <th> Last Name</th> <th> Account Number </th>
+        <th>ID</th> <th>First Name</th> <th> Last Name</th> <th> Account Number </th> <th>Email</th>
         </thead>
         <tr v-for="item in tuples" v-on:key="id">
-          <td>{{item.id}}</td> <td>{{item.firstName}}</td> <td> {{item.lastName}}</td> <td> {{item.accountNumber}}</td>
+          <td>{{item.id}}</td> <td>{{item.firstName}}</td> <td> {{item.lastName}}</td> <td> {{item.accountNumber}}</td> <td>{{item.email}}</td>
         </tr>
       </table>
     </div>
@@ -47,17 +47,23 @@ export default {
 </script>
 
 <style scoped>
-#account {
-  width:100%;
-}
+  #account {
+    width:100%;
+  }
 
-table {
-  margin:5% 0 0 4%;
-}
-table tr td {
-  margin: 5px;
-  border: solid black 2px;
-  padding:2% 4% 2% 4%;
-}
+  table {
+    margin:5% 0 0 4%;
+  }
+  table tr td {
+    margin: 5px;
+    border: solid black 2px;
+    padding:2% 4% 2% 4%;
+  }
 
+  th {
+    margin: 5px;
+    margin: 5px;
+    border: solid black 2px;
+    padding:2% 4% 2% 4%;
+  }
 </style>

@@ -128,28 +128,17 @@ export default {
   },
   data () {
     return {
-      orders: [],
-      tickets: []
     }
   },
-  methods: {
-    getOrders: function () {
-      axios.get('http://localhost:8182/order/getAll')
-        .then(response => {
-
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    getTickets: function () {
-      axios.get('http://localhost:8182/ticket/getAll')
-        .then(response => {
-          console.log(response.data)
-        }).catch(error => {
-          console.log(error)
-        })
-    }
+  getOrders () {
+    axios.get('http://localhost:8182/order/getAll')
+      .then(response => {
+        this.orders = response.data
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 }
 

@@ -12,7 +12,7 @@
           <tr>
             <td>
               <select name="movies" v-model="selectedMovie">
-                <option v-for="item in movies" :value="item.Title" v-on:key="movie-id">{{item.Title}}</option>
+                <option v-for="item in movies" :value="item.id" v-on:key="movie-id">{{item.Title}}</option>
               </select>
             </td>
             <td>
@@ -25,13 +25,13 @@
             </td>
             <td v-if="this.total !== 0"> {{total}}</td>
             <td>
-              <input type="button" name="" value="Add to Cart" v-on:click="addToCart">
+              <input type="button" name="" value="Add Ticket to Order" v-on:click="addTicketsToOrder">
             </td>
-
           </tr>
         </table>
-        <input class="checkout-button" type="button" value="Book Now">
-        <div style="clear:both"></div>
+        <P v-if="orderID === -1"> {{msg}}</P>
+        <input class="checkout-button" type="button" value="Create Order" v-on:click="addOrder">
+
       </div>
     </div>
     <p class="copy_rights">&copy; QA Cinema </p>
@@ -59,16 +59,6 @@ export default {
           console.log(error)
         })
     },
-    getOrders () {
-      axios.get('http://localhost:8182/order/getAll')
-        .then(response => {
-          this.orders = response.data
-          console.log(response)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
     getTickets () {
       axios.get('http://localhost:8182/ticket/getAll')
         .then(response => {
@@ -80,29 +70,67 @@ export default {
     },
     addToCart () {
       this.total = this.total + (this.quantity * this.selectedTicket)
+      // //puts the ticket for order into an array
+      // this.ticket = [this.selectedMovie, this.selectedTicket, this.quantity]
+      // //Then puts the array inside another array.
+      // this.orderTickets.push(this.ticket)
+      // console.log(this.ticket)
+      // setTimeout(this.selectedMovie = '', 200)
+      // setTimeout(this.quantity = '', 200)
+      // setTimeout(this.selectedTicket = '', 200)
+    },
+    addOrder () {
+      axios.post('http://localhost:8182/order/add', {
+        'email': 'pass@email.com',
+        'movie': this.selectedMovie
+      })
+        .then(response => {
+          this.orderID = response.data
+          if (this.orderID === -1) {
+            this.msg = 'Error. You need to create an account before you can make a booking.'
+          }
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    addTicketsToOrder () {
+      axios.post('http://localhost:8182/order/ticket/add', {
+        'order': this.orderID,
+        'ticket': this.selectedTicket,
+        'quantity': this.quantity
+      })
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      setTimeout(200)
+      this.selectedTicket = ''
       this.selectedMovie = ''
       this.quantity = 0
-      this.selectedTicket = ''
     }
   },
   data: function () {
     return {
       movies: [],
       tickets: [],
-      orders: [],
       total: 0,
       selectedMovie: '',
       selectedTicket: '',
       quantity: 0,
-      orderTickets: []
+      orderID: 0
     }
   },
   mounted: function () {
-    setTimeout(this.getOrders(), 200)
+    // setTimeout(this.getOrders(), 200)
     setTimeout(this.getTickets(), 200)
     setTimeout(this.getMovies(), 200)
   }
 }
+
 </script>
 
 <style scoped>
@@ -110,7 +138,6 @@ export default {
   table, tr, td {
     margin: 1%;
     border: solid black 2px;
-    padding:auto;
   }
   #ticket-booking {
     margin:auto;

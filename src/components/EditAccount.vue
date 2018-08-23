@@ -6,11 +6,12 @@
       <tr>
         <td><input type="text" placeholder="ID" name="id" v-model="id"></td><td><button v-on:click="deleteAccount"> Delete </button></td>
       </tr>
-      <th>ID</th> <th>First Name</th><th>Last Name</th>
+      <th>ID</th> <th>First Name</th><th>Last Name</th> <th>Email</th>
       <tr>
         <td><input v-model="id" placeholder="ID" alt="ID" type="text"></td>
         <td><input type="text" v-model="firstname" placeholder="First Name" alt="First Name"></td>
         <td><input type="text" v-model="Surname" placeholder="Surname" alt="Surname"/></td>
+        <td><input type="text" v-model="Email" placeholder="Email" alt="Email" ></td>
         <td><button v-on:click="updateAccount"> Edit </button></td>
       </tr>
       <a v-if="msg !== ''" id="confirmation" v-bind:value="msg"> {{msg}}</a>
@@ -44,17 +45,17 @@ export default {
     updateAccount () {
       axios.put('http://localhost:8182/account/edit/' + this.id, {
         'firstName': this.firstname,
-        'lastName': this.Surname
+        'lastName': this.Surname,
+        'email': this.Email
       })
         .then(response => {
           // JSON responses are automatically parsed.
-          this.tuples = response.data
           console.log(response.data)
         })
         .catch(e => {
           this.errors.push(e)
         })
-      setTimeout(this.getAccounts, 250)
+      setTimeout(this.getAccounts, 200)
     }
   }
 }

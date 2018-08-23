@@ -5,14 +5,14 @@
     <navigation/>
     <table>
       <thead>
-      <th>First Name</th> <th> Surnames </th> <th>Account Number </th>
+      <th>First Name</th> <th> Surnames </th> <th> Email </th> <th></th>
       </thead>
       <tr>
-        <td><input v-model="firstname" placeholder="First Name" alt="First Name"></td>
-        <td><input v-model="Surname" placeholder="Surname" alt="Surname"/></td>
+        <td><input type="text" v-model="firstname" placeholder="First Name" alt="First Name"></td>
+        <td><input type="text" v-model="Surname" placeholder="Surname" alt="Surname"/></td>
+        <td><input type="email" v-model="Email" placeholder="Email" alt="Email" > </td>
         <td><input type="submit" alt="Submit" v-on:click="createAccount"/>     </td>
       </tr><br>
-
     </table>
 
   </div>
@@ -30,7 +30,8 @@ export default {
       Surname: '',
       tuples: [],
       id: '',
-      msg: ''
+      msg: '',
+      Email: ''
     }
   },
   mounted: function () {
@@ -59,11 +60,11 @@ export default {
 
       axios.post('http://www.localhost:8182/account/add', {
         'firstName': this.firstname,
-        'lastName': this.Surname
+        'lastName': this.Surname,
+        'email': this.Email
       })
         .then(response => {
           // JSON responses are automatically parsed.
-          this.tuples = response.data
           console.log(response.data)
         })
         .catch(e => {
