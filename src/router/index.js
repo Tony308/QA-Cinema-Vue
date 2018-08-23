@@ -11,6 +11,7 @@ import ticketBooking from '@/components/TicketBooking'
 import Aboutus from '@/components/Aboutus'
 import movielisings from '@/components/MovieListings'
 import contactus from '@/components/ContactUs'
+import FilmClassifications from '@/components/FilmClassifications'
 // import nicescroll from '@/css/jquery.nicescroll.js'
 // import seatchart from '@/css/jquery.seat-chart.js'
 // import seatcharts2 from '@/css/jquery.seat-chart.js/jquery.seat-charts.min.js'
@@ -72,6 +73,11 @@ export default new Router({
       path: '/Contact-Us',
       name: 'ContactUs',
       component: contactus
+    },
+    {
+      path: '/Film-Classifications',
+      name: 'FilmClassifications',
+      component: FilmClassifications
     }
     // {
     //   path: '/seat-chart',

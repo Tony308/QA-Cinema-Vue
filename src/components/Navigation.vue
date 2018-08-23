@@ -18,16 +18,19 @@
             About Us
           </router-link>
         </li>
-
         <li class="nav-item">
           <router-link class="nav-link" to="/Movie-Listings" replace>
             Movie Listings
           </router-link>
         </li>
-
         <li class="nav-item">
           <router-link class="nav-link" to="/Contact-us" replace>
             Contact Us
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Film-Classifications" replace>
+            Film Classifications
           </router-link>
         </li>
         <li class="nav-item">
