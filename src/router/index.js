@@ -71,7 +71,8 @@ export default new Router({
       path: '/edit-account',
       name: 'edit-account',
       component: editAccount
-
+    },
+    {
       path: '/Film-Classifications',
       name: 'FilmClassifications',
       component: FilmClassifications

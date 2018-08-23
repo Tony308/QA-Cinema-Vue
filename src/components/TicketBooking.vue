@@ -38,9 +38,21 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="emailaddress"><b>Email Address</b></label>
               <div class="col-md-4">
-                <input id="emailaddress" name="emailaddress" type="text" placeholder="" class="form-control input-md" required="">
+                <input v-model="Email" id="emailaddress" name="emailaddress" type="text" placeholder="" class="form-control input-md" required="">
               </div>
             </div>
+
+            <!-- Select Movie -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="Location"><b>Select your Movie</b></label>
+              <div class="col-md-4">
+            <select class="form-control" v-model="selectedMovie" >
+              <option value="0">------ SELECT MOVIE ------</option>
+              <option v-for="item in movies" :value="item.id">{{item.Title}} {{item.id}}</option>
+            </select>
+              </div>
+            </div>
+
             <!-- Select Location -->
             <div class="form-group">
               <label class="col-md-4 control-label" for="Location"><b>Select your Location</b></label>
@@ -57,56 +69,42 @@
                 </select>
               </div>
             </div>
+
             <!-- Multiple Radios -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="TicketType1"><b>Ticket Type</b></label>
+              <label class="col-md-4 control-label"><b>Ticket Type</b></label>
               <div class="col-md-4">
                 <div class="radio">
-                  <label for="TicketType1">
-                    <input type="checkbox" name="TicketType" id="TicketType1" value="1" checked="checked">
-                    Adult
-                  </label>
-                  <select id="NoofTickets1" name="NoofTickets" class="form-control">
+
+                  <select class="form-control" v-model="selectedTicket">
+                    <option value="0"><b>------ SELECT TICKET TYPE ------</b></option>
+                    <option v-for="item in tickets" :value="item.ticketId" > {{item.type}} {{item.ticketId}}</option>
+                  </select>`
+                  <br>
+                  <label class="col-md-4 control-label"><b>Quantity</b></label>
+
+                  <select class="form-control" v-model="quantity">
                     <option value="0"><b>------ SELECT TICKET QUANTITY ------</b></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                  </select>
-                </div>
-                <div class="radio">
-                  <label for="TicketType2">
-                    <input type="checkbox" name="TicketType" id="TicketType2" value="2">
-                    Child
-                  </label>
-                  <select id="NoofTickets2" name="NoofTickets" class="form-control">
-                    <option value="0">------ SELECT TICKET QUANTITY------</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>
+                    <option value=10>10</option>
+                    <option value=11>11</option>
+                    <option value=12>12</option>
                   </select>
                 </div>
               </div>
             </div>
+            <a class="btn btn-primary btn-xl rounded-pill" v-on:click="addTicketsToOrder">Add to Cart</a>
             <!-- Text input-->
             <div class="form-group">
+              <br>
               <label class="col-md-4 control-label" for="dateselection"><b>Date</b></label>
               <div class="col-md-4">
                 <input id="dateselection" name="dateselection" type="date" placeholder="" class="form-control input-md">
@@ -137,38 +135,10 @@
                 </select>
               </div>
             </div>
-            <a class="btn btn-primary btn-xl rounded-pill">Click to Book Now</a>
+            <a class="btn btn-primary btn-xl rounded-pill" v-on:click="addOrder">Click to Book Now</a>
           </fieldset>
         </form>
-
-<!--
-<table class="book-right">
-          <tr>
-            <td>Movie</td> <td>Ticket</td> <td>Quantity</td> <td v-if="total !== 0">Total</td>
-          </tr>
-          <tr>
-            <td>
-              <select name="movies" v-model="selectedMovie">
-                <option v-for="item in movies" :value="item.id" v-on:key="movie-id">{{item.Title}}</option>
-              </select>
-            </td>
-            <td>
-              <select name="tickets" v-model="selectedTicket">
-                <option v-for="item in tickets" :value="item.price" v-on:key="movie-id"> {{item.type}}</option>
-              </select>
-            </td>
-            <td>
-              <input v-model="quantity" type="number" >
-            </td>
-            <td v-if="this.total !== 0"> {{total}}</td>
-            <td>
-              <input type="button" name="" value="Add Ticket to Order" v-on:click="addTicketsToOrder">
-            </td>
-          </tr>
-        </table>
         <P v-if="orderID === -1"> {{msg}}</P>
-        <input class="checkout-button" type="button" value="Create Order" v-on:click="addOrder">
--->
         <div style="clear:both"></div>
 
       </div>
@@ -178,7 +148,7 @@
         <div>
         <footer class="py-5 bg-black">
           <div class="container">
-            <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
+            <p class="m-0 text-center text-white small">Copyright &copy; 2018</p>
           </div>
           <!-- /.container -->
         </footer>
@@ -228,11 +198,12 @@ export default {
     },
     addOrder () {
       axios.post('http://localhost:8182/order/add', {
-        'email': 'pass@email.com',
+        'email': this.Email,
         'movie': this.selectedMovie
       })
         .then(response => {
           this.orderID = response.data
+          console.log(this.orderID)
           if (this.orderID === -1) {
             this.msg = 'Error. You need to create an account before you can make a booking.'
           }
@@ -249,15 +220,18 @@ export default {
         'quantity': this.quantity
       })
         .then(response => {
+          console.log(this.orderID)
+          console.log(this.selectedTicket)
+          console.log(this.quantity)
           console.log(response)
         })
         .catch(error => {
           console.log(error)
         })
       setTimeout(200)
-      this.selectedTicket = ''
-      this.selectedMovie = ''
-      this.quantity = 0
+      // this.selectedTicket = ''
+      // this.selectedMovie = ''
+      // this.quantity = 0
     }
   },
   data: function () {
@@ -268,7 +242,8 @@ export default {
       selectedMovie: '',
       selectedTicket: '',
       quantity: 0,
-      orderID: 0
+      orderID: 0,
+      Email: ''
     }
   },
   mounted: function () {
@@ -286,11 +261,6 @@ export default {
     margin: 1%;
     border: solid black 2px;
   }
-  #ticket-booking {
-    margin:auto;
-    width: 100%;
-  }
-
   .content {
     margin: 2% 10% 2% 10%;
   }
