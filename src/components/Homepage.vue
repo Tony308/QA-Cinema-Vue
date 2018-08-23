@@ -1,6 +1,7 @@
 <template>
   <div class="homepage">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="../css/homepage.css">-->
     <!--NAV-->
     <navigation/>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -13,7 +14,7 @@
 
        <!--Wrapper for slides-->
       <div class="carousel-inner" role="listbox" style="background-color:black;">
-        <div class="item active">
+        <div class="item active" >
           <!--<img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">-->
           <img class="carousel-image" src="@/images/incredibles-2.jpeg" alt="Incredibles 2">
           <div class="carousel-caption">
@@ -51,23 +52,18 @@
       </a>
     </div>
 
-    <div class="container text-center">
-      <h3>What's On</h3><br>
+    <div class="container text-center" style="padding-bottom:3%;">
+      <h1></h1>
+      <br>
       <div class="row">
-        <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-          <p>Current Project</p>
-        </div>
-        <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-          <p>Project 2</p>
-        </div>
-        <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" style="width:100%" alt="Image">
-          <p class="carousel-caption">Project 3</p>
+        <!--IMAGE-->
+        <div class="col-sm-4" v-for="item in movies" >
+          <img :src="item.Poster" class="img-responsive" style="width:100%" alt="Image">
+          <a class="movie-title" style="color:white;">{{item.Title}}</a>
         </div>
       </div>
-    </div><br>
+    </div>
+    <br>
   </div>
 </template>
 
@@ -79,7 +75,8 @@ export default {
   data () {
     return {
       apikey: '7813aa57',
-      localhost: 'http://www.localhost:8182/'
+      localhost: 'http://www.localhost:8182/',
+      movies: []
     }
   },
   name: 'Homepage',
@@ -91,12 +88,13 @@ export default {
   },
   methods: {
     getPoster () {
-      axios.get('http://www.omdbapi.com/?apikey=7813aa57&t=the+dark+knight')
-        .then(function (response) {
+      axios.get('http://localhost:8182/movie/getAll')
+        .then(response => {
           // handle success
+          this.movies = response.data
           console.log(response)
         })
-        .catch(function (error) {
+        .catch(error => {
           // handle error
           console.log(error)
         })
@@ -131,4 +129,21 @@ export default {
       display: none;
     }
   }
+  .homepage {
+    background-color:black;
+  }
+  h1 {
+    color:white;
+    font-size: 50px;
+    margin: 5% 0 3% 0;
+  }
+  .col-sm-4{
+    margin:0%;
+    padding:0%;
+  }
+  img {
+    height:100%;
+  }
+
+
 </style>
