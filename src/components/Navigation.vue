@@ -9,9 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-
         <li class="nav-item active">
-
           <router-link class="nav-link" style="margin:10% 0 0 20%;" to="/" replace>
            Home <span class="sr-only">(current)</span>
           </router-link>
