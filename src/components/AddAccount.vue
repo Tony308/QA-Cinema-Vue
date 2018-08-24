@@ -45,7 +45,6 @@ export default {
           // JSON responses are automatically parsed.
           this.tuples = response.data
           console.log(response.data)
-
         })
         .catch(e => {
           this.errors.push(e)
@@ -75,6 +74,7 @@ export default {
       setTimeout(this.getAccounts, 250)
       this.firstname = ''
       this.Surname = ''
+      this.Email = ''
     }
   }
 }

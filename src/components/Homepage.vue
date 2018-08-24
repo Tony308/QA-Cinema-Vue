@@ -15,7 +15,6 @@
       <navigation></navigation>
       <!-- Contact Section -->
       <section id="homepage">
-            <!--<div class="container"></div>-->
             <h1 class="masthead-heading mb-0 text-center text-black" style="margin-top: 0px">QA Cinema's</h1>
       </section>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -29,7 +28,6 @@
        <!--Wrapper for slides-->
       <div class="carousel-inner" role="listbox" style="background-color:black;">
         <div class="item active" >
-          <!--<img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">-->
           <img class="carousel-image" src="@/images/incredibles-2.jpg" alt="Incredibles 2" style="width:100%;height:635px;">
           <div class="carousel-caption">
             <h3>Out Now</h3>
@@ -38,7 +36,6 @@
         </div>
 
         <div class="item">
-          <!--<img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">-->
           <img class="carousel-image" src="@/images/antmanandthewasp.jpg" alt="Ant man and the wasp" style="width:100%;height:635px;">
           <div class="carousel-caption">
             <h3>Out 4th July </h3>
@@ -76,9 +73,16 @@
       <br>
       <div class="row">
         <!--IMAGE-->
-        <div class="col-sm-4" v-for="item in movies" >
-          <img :src="item.Poster" class="img-responsive" style="width:100%" alt="Image">
-          <a class="movie-title" style="color:white;">{{item.Title}}</a>
+        <div class="col-sm-4" v-for="item in movies" :key="item">
+          <img :src="item.Poster" class="image" style="width:100%" alt="Image">
+          <div class="overlay">
+            <div class="text" style="border:solid white 2px; padding:1%;"><h4> {{item.Title}}</h4><br>
+              <p style="width: 250px;font-size: 15px">{{item.Plot}}</p><br>
+              <p style="width: 250px;font-size: 15px">{{item.Released}}</p>
+              <p style="width: 250px;font-size: 15px">{{item.Genre}}</p>
+              <p style="width: 250px;font-size: 15px">{{item.Runtime}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -103,8 +107,6 @@ import Footer from './Footer'
 export default {
   data () {
     return {
-      apikey: '7813aa57',
-      localhost: 'http://www.localhost:8182/',
       movies: []
     }
   },
@@ -114,7 +116,7 @@ export default {
     'navigation': navigation
   },
   mounted: function () {
-    setTimeout(this.getPoster())
+    setTimeout(this.getPoster(), 100)
   },
   methods: {
     getPoster () {
@@ -134,20 +136,7 @@ export default {
 </script>
 
 <style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    /*display: inline-block;*/
-    margin: 0 10px;
-  }
-  a {
-    color: #000000;
-  }
+
   body{font-family:Lato}h1,h2,h3,h4,h5,h6{font-family:Catamaran;font-weight:800!important}
   .btn-xl{text-transform:uppercase;padding:1.5rem 3rem;font-size:.9rem;font-weight:700;letter-spacing:.1rem}
   .bg-black{background-color:#000!important}
@@ -174,9 +163,9 @@ export default {
   .btn-secondary{background-color:#ff6a00;border-color:#ff6a00}
   .btn-secondary:active,.btn-secondary:focus,.btn-secondary:hover{background-color:#c50!important;border-color:#c50!important}
   .btn-secondary:focus{box-shadow:0 0 0 .2rem rgba(255,106,0,.5)}
+
   .img-responsive {
     display: inline-block;
-
     padding: 5%;
   }
   .carousel-image {
@@ -211,10 +200,75 @@ export default {
     align-items: center;
   }
   .col-sm-4{
-    margin:0%;
     padding:0%;
+    width:100%;
+    margin:0;
   }
   img {
     height:100%;
+  }
+  a {
+    color: #000000;
+  }
+  body{font-family:Lato}h1,h2,h3,h4,h5,h6{font-family:Catamaran;font-weight:800!important}
+  .btn-xl{text-transform:uppercase;padding:1.5rem 3rem;font-size:.9rem;font-weight:700;letter-spacing:.1rem}
+  .bg-black{background-color:#000!important}
+  .rounded-pill{border-radius:5rem}
+  .navbar-custom{padding-top:1rem;padding-bottom:1rem;background-color:rgba(0,0,0,.7)}
+  .navbar-custom .navbar-brand{text-transform:uppercase;font-size:1rem;letter-spacing:.1rem;font-weight:700}
+  .navbar-custom .navbar-nav .nav-item .nav-link{text-transform:uppercase;font-size:.8rem;font-weight:700;letter-spacing:.1rem}
+  header.masthead{position:relative;overflow:hidden;padding-top:calc(7rem + 72px);padding-bottom:7rem;background:linear-gradient(0deg, #b368ff 0, #4970ee 100%);background-repeat:no-repeat;background-position:center center;background-attachment:scroll;background-size:cover}
+  header.masthead .masthead-content{z-index:1;position:relative}
+  header.masthead .masthead-content .masthead-heading{font-size:4rem}
+  header.masthead .masthead-content .masthead-subheading{font-size:2rem}
+  header.masthead .bg-circle{z-index:0;position:absolute;border-radius:100%;background:linear-gradient(0deg, #2e0d7a 0, #ff153d 100%)}
+  header.masthead .bg-circle-1{height:90rem;width:90rem;bottom:-55rem;left:-55rem}
+  header.masthead .bg-circle-2{height:50rem;width:50rem;top:-25rem;right:-25rem}
+  header.masthead .bg-circle-3{height:20rem;width:20rem;bottom:-10rem;right:5%}
+  header.masthead .bg-circle-4{height:30rem;width:30rem;top:-5rem;right:35%}
+  @media (min-width:992px){header.masthead{padding-top:calc(10rem + 55px);padding-bottom:10rem}
+    header.masthead .masthead-content .masthead-heading{font-size:6rem}
+    header.masthead .masthead-content .masthead-subheading{font-size:4rem}}
+  .bg-primary{background-color:#ee0979!important}
+  .btn-primary{background-color:#6c757d;border-color:#6c757d}
+  .btn-primary:active,.btn-primary:focus,.btn-primary:hover{background-color: #bd0429 !important;border-color:#bd0760!important}
+  .btn-primary:focus{box-shadow:0 0 0 .2rem rgba(238,9,121,.5)}
+  .btn-secondary{background-color:#ff6a00;border-color:#ff6a00}
+  .btn-secondary:active,.btn-secondary:focus,.btn-secondary:hover{background-color:#c50!important;border-color:#c50!important}
+  .btn-secondary:focus{box-shadow:0 0 0 .2rem rgba(255,106,0,.5)}
+
+  .image {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding:5%;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #2e0d7a;
+    padding: 5%;
+  }
+  .col-sm-4:hover .overlay {
+    opacity: 0.9  ;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
   }
 </style>
