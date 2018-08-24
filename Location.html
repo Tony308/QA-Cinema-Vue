@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https:ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB61RTWOe4-ZuB07OKSBRD6OPAI3tP29xs&callback=initMap">
+   </script>
+
+
+<style>
+
+#map {
+		position:relative;
+        height: 600;
+		width: 600;
+		
+		}
+#directionsdisplay{
+
+padding:10;
+}
+
+</style>
+
+
+<body>
+
+<table id="directionsdisplay" >
+<tr>
+	<td><div id="map"></div>
+	</td>
+	<td>
+	<div id="directiondiv"> 
+
+	<input type="text" id="directions" placeholder="Place direction here."/>
+	<input type="submit" id="submits" class="submit"/>
+	</div>
+	<div id="directionspanel"></div></td>
+	</tr>
+	</table>
+
+<script>
+
+      function initMap() {
+	  var centre = {lat: 53.475090, lng: -2.286870};
+       var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 15,
+		 center:centre
+        });
+		var marker = new google.maps.Marker({
+          position: centre,
+          map: map
+        });
+      }
+</script>  	
+
+<script>
+$('.submit').click(function() {
+var directionsService = new google.maps.DirectionsService();
+var directionsDisplay = new google.maps.DirectionsRenderer();	
+
+ var map = new google.maps.Map(document.getElementById('map'), {
+   zoom:15,
+   mapTypeId: google.maps.MapTypeId.ROADMAP
+ });
+
+ directionsDisplay.setMap(map);
+ directionsDisplay.setPanel(document.getElementById('directionspanel'));
+	 var address = $('#directions').val();
+    var request = {
+    	origin: address,
+    	destination: '53.475090,-2.286870',
+    	travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+
+    directionsService.route(request, function(response, status) {
+    	if (status == google.maps.DirectionsStatus.OK) {
+     		directionsDisplay.setDirections(response);
+    	}
+    });
+});
+	
+</script>
+
+
+
+</head>
+</body>
+</html>
