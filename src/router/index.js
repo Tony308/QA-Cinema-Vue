@@ -11,7 +11,8 @@ import movielistings from '@/components/MovieListings'
 import contactus from '@/components/ContactUs'
 import editAccount from '@/components/EditAccount'
 import FilmClassifications from '@/components/FilmClassifications'
-
+import checkout from '@/components/Checkout'
+import Orders from '@/components/Orders'
 // import nicescroll from '@/css/jquery.nicescroll.js'
 // import seatchart from '@/css/jquery.seat-chart.js'
 // import seatcharts2 from '@/css/jquery.seat-chart.js/jquery.seat-charts.min.js'
@@ -77,6 +78,16 @@ export default new Router({
       name: 'FilmClassifications',
       component: FilmClassifications
 
+    },
+    {
+      path: '/checkout',
+      name: 'Checkout',
+      component: checkout
+    },
+    {
+      path: '/orders',
+      name: 'Orders',
+      component: Orders
     }
     // {
     //   path: '/seat-chart',

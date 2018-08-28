@@ -61,6 +61,9 @@
               <router-link to="/account" replace>
                 <a>Get Accounts</a>
               </router-link>
+              <!--<router-link to="/orders" replace>-->
+                <!--<a>Get Orders</a>-->
+              <!--</router-link>-->
               <router-link to="/edit-account" replace>
                 <a>Edit Account</a>
               </router-link>
