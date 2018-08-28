@@ -39,6 +39,12 @@
                 <p style="width: 250px;font-size: 15px">{{movie.Released}}</p>
                 <p style="width: 250px;font-size: 15px">{{movie.Genre}}</p>
                 <p style="width: 250px;font-size: 15px">{{movie.Runtime}}</p>
+                <router-link to="/book-ticket">
+                  <a class="btn btn-primary btn-dark checkout-button mt-auto" v-on:click="relocate">
+                    Book Now!
+                  </a>
+                </router-link>
+
               </div>
             </div>
           </div>
@@ -86,6 +92,9 @@ export default {
   methods: {
     filterMovies () {
       return this.rows.filter(movie => movie.Title.toUpperCase().includes(this.search.toUpperCase()))
+    },
+    relocate () {
+      window.location.href = 'http://localhost:8080/#/book-ticket'
     }
   }
 }
@@ -104,7 +113,7 @@ export default {
     margin: 0 10px;
   }
   a {
-    color: #000000;
+    color: #ffffff;
   }
   body{font-family:Lato}h1,h2,h3,h4,h5,h6{font-family:Catamaran;font-weight:800!important}
   .btn-xl{text-transform:uppercase;padding:1.5rem 3rem;font-size:.9rem;font-weight:700;letter-spacing:.1rem}

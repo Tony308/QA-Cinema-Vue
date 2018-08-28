@@ -17,7 +17,7 @@
         <fieldset>
           <button name="submit" id="contact-submit" v-on:click="login" type="submit" tabindex="3">Submit</button>
         </fieldset>
-
+        <footer></footer>
       </form>
     </div>
   </div>
@@ -26,10 +26,11 @@
 <script>
 import Navigation from './Navigation'
 import axios from 'axios'
+import Footer from "./footer";
 export default {
 
   name: 'Login',
-  components: {Navigation},
+  components: {Footer, Navigation},
   data: function () {
     return {
       username: '',

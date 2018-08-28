@@ -19,7 +19,11 @@
          <h1 class="masthead-heading mb-0">Ticket Booking</h1>
          <h2 class="masthead-subheading mb-0"></h2>
          <a src="#" class="btn btn-primary btn-xl rounded-pill mt-5">All Screenings</a>
-         <a src="#" class="btn btn-primary btn-xl rounded-pill mt-5">Book Now!</a>
+           <router-link to="/book-ticket" replace>
+             <a class="btn btn-primary btn-xl rounded-pill mt-5">
+               Book Now!
+             </a>
+           </router-link>
        </div>
      </div>
      <div class="bg-circle-1 bg-circle"></div>
@@ -156,7 +160,7 @@ export default {
     margin: 0 10px;
   }
   a {
-    color: #000000;
+    color: #FFFF;
   }
   body{font-family:Lato}h1,h2,h3,h4,h5,h6{font-family:Catamaran;font-weight:800!important}
   .btn-xl{text-transform:uppercase;padding:1.5rem 3rem;font-size:.9rem;font-weight:700;letter-spacing:.1rem}

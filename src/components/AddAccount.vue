@@ -13,6 +13,7 @@
         <td><input type="email" v-model="Email" placeholder="Email" alt="Email" > </td>
         <td><input type="submit" alt="Submit" v-on:click="createAccount"/>     </td>
       </tr><br>
+      <a v-if="msg !== ''">{{msg}}</a>
     </table>
 
   </div>
@@ -41,7 +42,6 @@ export default {
     getAccounts () {
       axios.get('http://www.localhost:8182/account/getAll')
         .then(response => {
-
           // JSON responses are automatically parsed.
           this.tuples = response.data
           console.log(response.data)
@@ -52,9 +52,14 @@ export default {
     },
     createAccount () {
       if (this.firstname === '') {
-        this.msg = 'You haven\'t entered a firstname'
+        this.msg = 'You haven\'t entered a first name'
+        return this.msg
       } else if (this.Surname === '') {
-        this.msg = 'You haven\'t entered a surname'
+        this.msg = 'You haven\'t entered a last name'
+        return this.msg
+      } else if (this.Email === '') {
+        this.msg = 'You haven\'t entered an email.'
+        return this.msg
       } else {
         this.msg = ''
       }
@@ -75,6 +80,8 @@ export default {
       this.firstname = ''
       this.Surname = ''
       this.Email = ''
+
+      window.location.href = 'http://localhost:8080/#/Ticket-booking'
     }
   }
 }
